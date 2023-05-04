@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}
+    </style>
+</head>
+
+<body id="body">
+<div>
+    <button id="add" style="margin-top: 20px;margin-left: 20px" type="button" class="btn btn-secondary" onclick="showFormAdd()">Add Product</button>
+    <button id="login" style="margin-top: 20px;margin-left: 20px" type="button" class="btn btn-secondary" onclick="showFormLogin()">Login</button>
+    <button id="signup" style="margin-top: 20px;margin-left: 20px" type="button" class="btn btn-secondary" onclick="showFormSignUp()">Signup</button>
+    <button id="logout" style="margin-top: 20px;margin-left: 20px" type="button" class="btn btn-secondary" onclick="logout()" hidden="">Logout</button>
+</div>
+<div class="container mt-5 mb-5" id="product" onload="showHome()">
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+<script src="index.js"></script>
+
+<!--uploadFile-->
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCJe0l2QrmIhsjsNI_hn-aKNF7oY0_ZnxE",
+        authDomain: "crud-8adf5.firebaseapp.com",
+        projectId: "crud-8adf5",
+        storageBucket: "crud-8adf5.appspot.com",
+        messagingSenderId: "405629308956",
+        appId: "1:405629308956:web:0b272898ea071b59c34fd9",
+        measurementId: "G-QJX462K990"
+    };
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
