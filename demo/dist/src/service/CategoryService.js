@@ -8,6 +8,17 @@ class CategoryService {
             let categories = await this.categoryRepository.find({});
             return categories;
         };
+        this.getProductsByBrand = async (idBrand) => {
+            let categories = await this.categoryRepository.find({
+                relations: {
+                    products: true,
+                },
+                where: {
+                    id: idBrand
+                }
+            });
+            return categories;
+        };
         this.categoryRepository = data_source_1.AppDataSource.getRepository(category_1.Category);
     }
 }

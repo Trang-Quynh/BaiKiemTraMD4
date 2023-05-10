@@ -19,6 +19,18 @@ class CategoryService {
         return categories;
     }
 
+    getProductsByBrand = async (idBrand) => {
+        let categories = await this.categoryRepository.find({
+            relations: {
+                products: true,
+            },
+            where: {
+                id: idBrand
+            }
+        })
+        return categories;
+    }
+
 }
 
 export default new CategoryService();

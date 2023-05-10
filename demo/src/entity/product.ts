@@ -9,6 +9,8 @@ export class Product {
     name: string;
     @Column()
     price: number;
+    @Column()
+    quantity: number;
     @Column({type: 'text'})
     image: string;
     @ManyToOne(()=>Category, (category) =>{category.products})

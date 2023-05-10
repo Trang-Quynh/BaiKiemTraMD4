@@ -4,8 +4,9 @@ declare class ProductService {
     getAll: () => Promise<any>;
     add: (product: any) => Promise<any>;
     deleteProduct: (id: any) => Promise<void>;
+    sortByPriceService: () => Promise<any>;
     findProductById: (id: any) => Promise<any>;
-    updateProductById: (id: any, updateProduct: any) => Promise<void>;
+    updateProductById: (id: any, updateProduct: any) => Promise<any>;
     findProductByKeyword: (keyword: any) => Promise<any>;
 }
 declare const _default: ProductService;

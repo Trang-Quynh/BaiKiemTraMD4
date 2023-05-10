@@ -23,6 +23,10 @@ __decorate([
     __metadata("design:type", String)
 ], Category.prototype, "name", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ type: 'text' }),
+    __metadata("design:type", String)
+], Category.prototype, "description", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => product_1.Product, (product) => product.category),
     __metadata("design:type", Array)
 ], Category.prototype, "products", void 0);

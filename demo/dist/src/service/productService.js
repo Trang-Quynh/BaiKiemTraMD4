@@ -20,6 +20,10 @@ class ProductService {
         this.deleteProduct = async (id) => {
             await this.productRepository.delete({ id: id });
         };
+        this.sortByPriceService = async () => {
+            let products = await this.productRepository.query('SELECT * FROM product ORDER BY price ASC;');
+            return products;
+        };
         this.findProductById = async (id) => {
             let product = await this.productRepository.find({
                 relations: {
@@ -32,7 +36,8 @@ class ProductService {
             return product;
         };
         this.updateProductById = async (id, updateProduct) => {
-            await this.productRepository.update({ id: id }, updateProduct);
+            let updatedProduct = await this.productRepository.update({ id: id }, updateProduct);
+            return updatedProduct;
         };
         this.findProductByKeyword = async (keyword) => {
             let products = await this.productRepository.find({

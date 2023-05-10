@@ -40,18 +40,17 @@ class ProductService {
      return productNew
     }
     deleteProduct = async (id) => {
-        await this.productRepository.delete({id:id});
+       await this.productRepository.delete({id:id});
+
+    }
+
+    sortByPriceService = async () => {
+        let products = await this.productRepository.query('SELECT * FROM product ORDER BY price ASC;');
+        return products
     }
 
 
-    // findProductById = async(id) =>{
-    //    let product = await this.productRepository.findOneBy({
-    //         id:id
-    //     },
-    //        {relations: {category:true}
-    //        })
-    //     return product;
-    // }
+
 
     findProductById = async(id) =>{
         let product = await this.productRepository.find({
@@ -64,6 +63,8 @@ class ProductService {
         });
        return product;
     }
+
+
     // find({
     //          //relations phai co s
     //          relations: {
@@ -79,7 +80,8 @@ class ProductService {
 
 
     updateProductById = async(id, updateProduct ) => {
-        await this.productRepository.update({id: id}, updateProduct)
+       let updatedProduct = await this.productRepository.update({id: id}, updateProduct);
+       return updatedProduct
     }
 
     findProductByKeyword = async(keyword) => {

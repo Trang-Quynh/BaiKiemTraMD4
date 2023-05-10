@@ -16,56 +16,59 @@ class ProductController {
             res.status(200).json(listProduct)
     }
 
-    // addProduct = async (req: Request, res: Response) => {
-    //     if(!req.body.name){
-    //         res.status(400).json({
-    //             message: 'name missing'
-    //         })
-    //     }else{
-    //         await this.productService.add(req.body);
-    //         res.status(201).json({message:'OK'})
-    //     }
-    // }
+
 
     addProduct  = async (req: Request, res: Response) => {
       let productData = req.body;
+      console.log(productData)
       const productNew = await this.productService.add(productData);
       res.status(200).json(productNew)
     }
 
     deleteProductPost  = async (req: Request, res: Response) => {
         let id = req.params.id
-        console.log(id)
         await this.productService.deleteProduct(id);
         res.status(200).json({message: 'delete success'})
     }
 
-    showFormAdd = async (req: Request, res: Response) => {
-        let categoryList = await this.categoryService.getAll();
-        console.log(categoryList)
-        res.status(200).json(categoryList)
-    }
-    showFormUpdate = async (req: Request, res: Response) => {
-        let id = req.params.id
-        let product = await this.productService.findProductById(id);
-        let categoryList = await this.categoryService.getAll();
-        res.status(200).json({product: product, category: categoryList})
-    }
+
+
 
 
     updateProduct = async (req: Request, res: Response) => {
         let id = req.params.id
         let updateProduct = req.body
         await this.productService.updateProductById(id, updateProduct)
-        res.status(200).json({message: 'update success'})
+        res.status(200).json('Update success')
     }
-    find = async (req: Request, res: Response) => {
-        let keyword = req.query.search
-        console.log(keyword)
-        let products = await this.productService.findProductByKeyword(keyword)
+
+
+    showDetailProduct = async (req: Request, res: Response) => {
+        let id = req.params.id
+        let product = await this.productService.findProductById(id);
+        console.log(product)
+        res.status(200).json(product)
+    }
+
+
+    showAccordingBrand = async (req: Request, res: Response) => {
+        let idBrand = req.params.id;
+        let products = await this.categoryService.getProductsByBrand(idBrand)
         console.log(products)
         res.status(200).json(products)
     }
+
+
+    sortByPrice = async (req: Request, res: Response) => {
+            let products = await this.productService.sortByPriceService()
+            console.log(products)
+            res.status(200).json(products)
+    }
+// thiết kế đường dẫn thế này có được không
+
+
+
+
 
 
 
